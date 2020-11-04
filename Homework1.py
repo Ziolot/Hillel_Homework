@@ -16,6 +16,7 @@ from __future__ import __braces__
 # Syntax error: not a chance. *Difficult joke*
 
 #Task 4
+from art import *
 tprint("Artur", font="caligraphy")
 #Hope this one is correct. It worked in terminal but I had troubles to run it in Pycharm.
 #Want to ask some question about it during our next lesson.
