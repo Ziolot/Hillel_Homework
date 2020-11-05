@@ -15,7 +15,17 @@ import __hello__
 from __future__ import __braces__
 # Syntax error: not a chance. *Difficult joke*
 
-#Task 4
+#Task 4- Name
+print('*                 **********\n'
+      '* *               *         *\n'
+      '* * *             *        *\n'
+      '*    *            *       *\n'
+      '*     *           ******** \n'
+      '********          ** \n'
+      '*      *          * *\n'
+      '*       *         *   * \n'
+      '*        *        *     *\n')
+#Task 4.1
 from art import *
 tprint("Artur", font="caligraphy")
 #Hope this one is correct. It worked in terminal but I had troubles to run it in Pycharm.
