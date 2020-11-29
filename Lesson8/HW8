@@ -1,0 +1,41 @@
+import requests
+import datetime
+
+URL = 'https://api.exchangerate.host/convert'
+
+path = 'symbols.json'
+
+
+def currency_input():
+    currency_from = input(
+        str("Type the 3 letter abbreviation of the currency FROM convert. By default it will take USD"))
+    if currency_from == "":
+        currency_from == 'USD'
+    currency_to = input(str('Type in the 3 letter abbreviation of the currency TO convert. By default UAH'))
+    if currency_to == '':
+        currency_to == 'UAH'
+    currency_amount = input(float('Type in amount to convert. By default 100'))
+    if currency_amount == '':
+        currency_amount == 100.00
+    currency_date = input(str('Type in date in a format "YYYY-MM-dd". By default today.'))
+    if currency_date == '':
+        currency_date == datetime
+    data = {'from': currency_from, 'to': currency_to, 'amount': currency_amount, 'date': currency_date}
+    r = requests.get(URL, data)
+
+
+def check_symbol():
+    for i in path['symbols']:
+        if i['symbols'] != currency_input():  # когда пытался использовать currency_from and currency_to он ругался
+            print('Wrong currency')
+
+
+def symbol_json():
+    result = currency_input()
+    with open('symbols.json', 'r') as f:
+        f.writelines(['Date\t\t From\t To\t amount\t result', '\n'])
+        for day in result['list']:
+            f.writelines([datetime.date.fromtimestamp(day['dt']).strftime('%d-%m-%Y') + (12 * ' '),
+                          day['temp']['day']) + (16 * ' '),
+                          day['feels_like']['day']) + (24 * ' '),
+                          day['temp']['night']), '\n'])
