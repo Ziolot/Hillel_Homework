@@ -1,4 +1,3 @@
-# Не работает. Что можно еще почитать о функция в пайтоне что бы лучше в них разобраться.
 import requests
 import datetime
 
@@ -8,21 +7,22 @@ path = 'symbols.json'
 
 
 def currency_input():
-    currency_from = input(
-        str("Type the 3 letter abbreviation of the currency FROM convert. By default it will take USD"))
-    if currency_from == "": #  ?
-        currency_from == 'USD'
-    currency_to = input(str('Type in the 3 letter abbreviation of the currency TO convert. By default UAH'))
+    currency_from = input("Type the 3 letter abbreviation of the currency FROM convert. By default it will take USD ")
+    if currency_from == "":
+        currency_from = 'USD'
+    currency_to = input('Type in the 3 letter abbreviation of the currency TO convert. By default UAH ')
     if currency_to == '':
-        currency_to == 'UAH'
-    currency_amount = input(float('Type in amount to convert. By default 100'))
-    if currency_amount == '': 
-        currency_amount == 100.00
-    currency_date = input(str('Type in date in a format "YYYY-MM-dd". By default today.'))
+        currency_to = 'UAH'
+    currency_amount = input('Type in amount to convert. By default 100 ')
+    if currency_amount == '':
+        currency_amount = 100.00
+    currency_date = input('Type in date in a format "YYYY-MM-dd". By default today ')
     if currency_date == '':
-        currency_date == datetime
+        currency_date = datetime.datetime.now()
     data = {'from': currency_from, 'to': currency_to, 'amount': currency_amount, 'date': currency_date}
     r = requests.get(URL, data)
+    print(r.json())
+currency_input()
 
 
 def check_symbol():
