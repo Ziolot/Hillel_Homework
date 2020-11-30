@@ -20,10 +20,12 @@ def currency_input():
     if currency_date == '':
         currency_date = datetime.datetime.now()
     data = {'from': currency_from, 'to': currency_to, 'amount': currency_amount, 'date': currency_date}
+    print(data)
     r = requests.get(URL, data)
     print(r.json())
-currency_input()
 
+
+currency_input()
 
 def check_symbol():
     for i in path['symbols']:
