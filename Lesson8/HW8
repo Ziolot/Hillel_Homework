@@ -2,7 +2,7 @@ import requests
 import datetime
 
 URL = 'https://api.exchangerate.host/convert'
-
+{'success': False}
 path = 'symbols.json'
 
 
@@ -25,7 +25,7 @@ def currency_input():
     print(r.json())
 
 
-currency_input()
+currency_input() # выдает ошибку "{'success': False}". Скорее всего что то не так с реквестом ?
 
 def check_symbol():
     for i in path['symbols']:
