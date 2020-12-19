@@ -1,10 +1,13 @@
 import requests
+import json
 import datetime
 
 URL = 'https://api.exchangerate.host/convert'
-{'success': False}
-path = 'symbols.json'
 
+def symbols():
+    with open('symbols.json', 'r') as file:
+        symbols_file = json.load(file)
+    return symbols_file
 
 def currency_input():
     currency_from = input("Type the 3 letter abbreviation of the currency FROM convert. By default it will take USD ")
@@ -25,22 +28,4 @@ def currency_input():
     print(r.json())
 
 
-currency_input() # выдает ошибку "{'success': False}". Скорее всего что то не так с реквестом ?
-
-def check_symbol():
-    for i in path['symbols']:
-        if i['symbols'] != currency_input():  # когда пытался использовать currency_from and currency_to он ругался
-            print('Wrong currency')
-
-
-def symbol_json():
-    result = currency_input()
-    with open('symbols.json', 'r') as f:
-        f.writelines(['Date\t\t From\t To\t amount\t result', '\n'])
-        for day in result['list']:
-            f.writelines([datetime.date.fromtimestamp(day['dt']).strftime('%d-%m-%Y') + (12 * ' '),
-                          day(['temp']['day']) + (16 * ' '),
-                          day(['feels_like']['day']) + (24 * ' '),
-                          day(['temp']['night']), '\n'])
-
-symbol_json()
+currency_input()
